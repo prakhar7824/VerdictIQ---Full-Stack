@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-const API_BASE_URL = process.env.REACT_APP_PREDICTION_API_URL || 'http://localhost:8001';
+const API_BASE_URL = 'http://localhost:8001';
 
 export const predictOutcome = async (caseDetails) => {
   try {
-    const formData = new FormData();
+    const formData = new URLSearchParams();
     formData.append('case_description', caseDetails.text || caseDetails);
 
     const response = await axios.post(
@@ -12,16 +12,18 @@ export const predictOutcome = async (caseDetails) => {
       formData,
       {
         headers: {
-          'Content-Type': 'multipart/form-data',
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
       }
     );
 
     return {
       prediction: response.data.predicted_winner,
-      confidence: response.data.confidence
+      confidence: response.data.confidence,
+      status: response.data.status
     };
   } catch (error) {
+    console.error('Prediction error:', error);
     if (error.response) {
       throw new Error(error.response.data.detail || 'Prediction failed');
     }

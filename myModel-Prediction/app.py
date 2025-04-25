@@ -1,7 +1,10 @@
-from fastapi import FastAPI, HTTPException, Form
+from fastapi import FastAPI, HTTPException, Form, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles
 from predict_outcome import predict_case_outcome
 import uvicorn
+import os
 
 app = FastAPI()
 
@@ -14,9 +17,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Set up templates
+templates = Jinja2Templates(directory="templates")
+
 @app.get("/")
-async def root():
-    return {"message": "Legal Case Outcome Prediction API"}
+async def root(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
 
 @app.post("/predict-outcome")
 async def predict_outcome(case_description: str = Form(...)):
@@ -41,4 +47,6 @@ async def predict_outcome(case_description: str = Form(...)):
         raise HTTPException(status_code=400, detail=str(e))
 
 if __name__ == "__main__":
+    # Create templates directory if it doesn't exist
+    os.makedirs("templates", exist_ok=True)
     uvicorn.run(app, host="0.0.0.0", port=8001) 

@@ -71,9 +71,7 @@ src/
 - **Document Comparison**: Compare multiple legal documents for similarities and differences
 - **Mobile Application**: Native mobile applications for iOS and Android
 
-## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Acknowledgments
 

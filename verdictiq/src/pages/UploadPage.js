@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Layout from '../components/Layout';
 import FileUpload from '../components/FileUpload';
 import PredictionResult from '../components/PredictionResult';
+import '../styles/PredictionPage.css';
 
 const UploadPage = () => {
   const [isAnalyzing, setIsAnalyzing] = useState(false);
@@ -65,88 +66,41 @@ const UploadPage = () => {
 
   return (
     <Layout>
-      <div className="upload-page">
+      <div className="prediction-page">
         <div className="page-header">
-          <h1>Upload & Analyze Legal Documents</h1>
-          <p>Upload your legal document for AI-powered analysis and prediction</p>
+          <h1>PRIVACY & SECURITY</h1>
+          <p>Your data is secure with our advanced encryption and privacy measures</p>
         </div>
 
-        <div className="upload-container">
-          <div className="upload-section">
-            <h2>Document Upload</h2>
-            <p>Upload your case documents to get AI-powered analysis and predictions.</p>
-            <FileUpload onUpload={handleUpload} />
-          </div>
-
-          <div className="supported-formats">
-            <h3>Supported Document Types</h3>
-            <ul>
-              <li>
-                <span className="format-icon">📄</span>
-                <span className="format-name">PDF</span>
-                <span className="format-desc">Best for scanned legal documents</span>
-              </li>
-              <li>
-                <span className="format-icon">📝</span>
-                <span className="format-name">DOCX</span>
-                <span className="format-desc">Word documents with formatting</span>
-              </li>
-              <li>
-                <span className="format-icon">📋</span>
-                <span className="format-name">TXT</span>
-                <span className="format-desc">Plain text legal documents</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="privacy-notice">
-          <h3>Privacy & Security</h3>
-          <p>
-            All uploaded documents are encrypted and processed securely. Your data is never shared with third parties.
-            Documents are automatically deleted after 30 days unless you choose to save them to your account.
-          </p>
-        </div>
-
-        <div className="results-section">
-          <PredictionResult 
-            result={result}
-            isLoading={isAnalyzing}
-            error={error}
-          />
-        </div>
-
-        {!isAnalyzing && !result && !error && (
-          <div className="features-overview">
-            <h2>Legal Analysis Features</h2>
-            <div className="features-grid">
-              <div className="feature-item">
-                <h3>Case Type Identification</h3>
-                <p>AI automatically identifies case types (civil, criminal, corporate law, etc.)</p>
-              </div>
-              <div className="feature-item">
-                <h3>Outcome Prediction</h3>
-                <p>Get probability scores for case outcomes based on legal precedents</p>
-              </div>
-              <div className="feature-item">
-                <h3>Document Summarization</h3>
-                <p>AI generates concise summaries of lengthy legal documents</p>
-              </div>
-              <div className="feature-item">
-                <h3>Precedent Matching</h3>
-                <p>Finds similar past cases and relevant judgments</p>
-              </div>
-              <div className="feature-item">
-                <h3>Bias Detection</h3>
-                <p>Ensures AI predictions are fair and unbiased</p>
-              </div>
-              <div className="feature-item">
-                <h3>Key Factor Analysis</h3>
-                <p>Identifies strongest and weakest aspects of your case</p>
-              </div>
+        <div className="features-overview">
+          <h2>LEGAL ANALYSIS FEATURES</h2>
+          <div className="features-grid">
+            <div className="feature-item">
+              <h3>CASE TYPE IDENTIFICATION</h3>
+              <p>AI automatically identifies case types (civil, criminal, corporate law, etc.)</p>
+            </div>
+            <div className="feature-item">
+              <h3>OUTCOME PREDICTION</h3>
+              <p>Get probability scores for case outcomes based on legal precedents</p>
+            </div>
+            <div className="feature-item">
+              <h3>DOCUMENT SUMMARIZATION</h3>
+              <p>AI generates concise summaries of lengthy legal documents</p>
+            </div>
+            <div className="feature-item">
+              <h3>PRECEDENT MATCHING</h3>
+              <p>Finds similar past cases and relevant judgments</p>
+            </div>
+            <div className="feature-item">
+              <h3>BIAS DETECTION</h3>
+              <p>Ensures AI predictions are fair and unbiased</p>
+            </div>
+            <div className="feature-item">
+              <h3>KEY FACTOR ANALYSIS</h3>
+              <p>Identifies strongest and weakest aspects of your case</p>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </Layout>
   );

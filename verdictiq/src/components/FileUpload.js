@@ -65,16 +65,13 @@ const FileUpload = ({ onUpload, acceptedFileTypes = '.pdf,.docx,.txt' }) => {
       const formData = new FormData();
       formData.append('document', file);
       
-      // In a real implementation, you would call an API here
-      // For now, just simulate API call with timeout
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      // Call parent component's onUpload handler
+      // Call parent component's onUpload handler with the file
       if (onUpload) {
-        onUpload(formData);
+        await onUpload(file);
       }
     } catch (err) {
       setError('Error uploading file. Please try again.');
+      console.error('Upload error:', err);
     } finally {
       setLoading(false);
     }

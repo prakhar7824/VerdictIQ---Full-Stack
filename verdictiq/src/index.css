@@ -22,10 +22,14 @@
 }
 
 body {
+  background: #f4f4f9;
+  color: #222831;
   font-family: 'Roboto', Arial, sans-serif;
   line-height: 1.6;
-  color: var(--text-color);
-  background-color: var(--light-bg);
+}
+
+h1, h2, h3, h4, h5, h6, p, span, label, li, input, select, textarea, th, td, div {
+  color: #222831 !important;
 }
 
 a {
@@ -236,4 +240,51 @@ nav a:hover::after {
   .auth-buttons {
     margin-top: 0;
   }
+}
+
+/* Card styles */
+.card, .section-card, .results-card, .feature-card, .testimonial-card, .how-step {
+  background: rgba(255,255,255,0.95) !important;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(34, 40, 49, 0.12);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(2px);
+}
+
+/* Global button styles */
+button, .primary-btn, .signup-btn, .login-btn, .auth-button, .social-button, .upload-button, .cancel-button, .view-full-btn, .cite-btn, .save-btn {
+  background: #fff !important;
+  color: #222831 !important;
+  border: 1px solid #222831 !important;
+  border-radius: 8px !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(34,40,49,0.10);
+  transition: background 0.2s, color 0.2s;
+}
+button:hover, .primary-btn:hover, .signup-btn:hover, .login-btn:hover, .auth-button:hover, .social-button:hover, .upload-button:hover, .cancel-button:hover, .view-full-btn:hover, .cite-btn:hover, .save-btn:hover {
+  background: #222831 !important;
+  color: #fff !important;
+}
+
+/* Section backgrounds */
+section, .container, .page-header, .upload-container, .input-container, .features-overview, .features-grid, .explainer-section, .explainer-grid {
+  background: none !important;
+  backdrop-filter: none !important;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #60a5fa;
+  margin-bottom: 1.5rem;
+}
+
+.section-header .icon {
+  font-size: 2rem;
+  margin-right: 0.75rem;
 }

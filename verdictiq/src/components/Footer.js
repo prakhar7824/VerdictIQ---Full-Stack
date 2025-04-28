@@ -17,7 +17,7 @@ const Footer = () => {
             <li><Link to="/features">Features</Link></li>
             <li><Link to="/upload">Upload Document</Link></li>
             <li><Link to="/precedents">Precedent Finder</Link></li>
-            <li><Link to="/about">About Us</Link></li>
+            <li><Link to="/#about">About Us</Link></li>
           </ul>
         </div>
         
@@ -44,7 +44,11 @@ const Footer = () => {
       
       <div className="footer-bottom">
         <p>&copy; {new Date().getFullYear()} VerdictIQ. All rights reserved.</p>
-        <p><Link to="/privacy">Privacy Policy</Link> | <Link to="/terms">Terms of Service</Link></p>
+        <div className="footer-links">
+          <Link to="/#about">About</Link>
+          <Link to="/#contact">Contact</Link>
+          <a href="/privacy">Privacy Policy</a>
+        </div>
       </div>
     </footer>
   );

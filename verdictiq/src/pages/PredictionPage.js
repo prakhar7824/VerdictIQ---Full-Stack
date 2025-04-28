@@ -42,15 +42,6 @@ const PredictionPage = () => {
     }
   };
 
-  const getImpactColor = (impact) => {
-    switch(impact) {
-      case 'positive': return '#2ecc71';
-      case 'negative': return '#e74c3c';
-      case 'neutral': return '#3498db';
-      default: return '#7f8c8d';
-    }
-  };
-
   return (
     <Layout>
       <div className="prediction-page">

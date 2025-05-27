@@ -1,0 +1,8 @@
+flask==2.0.1
+flask-cors==3.0.10
+werkzeug==2.0.1
+PyPDF2==3.0.1
+python-docx==0.8.11
+spacy==3.5.0
+transformers==4.30.2
+torch==2.0.1 

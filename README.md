@@ -1,105 +1,110 @@
-# VerdictIQ - Legal Case Analysis System
+📘 VerdictIQ - Legal Case Analysis System
 
-VerdictIQ is an advanced legal case analysis system that combines machine learning with legal expertise to provide case classification and outcome prediction services.
+VerdictIQ is a legal tech platform that utilizes machine learning to classify cases and predict outcomes through an interactive frontend and FastAPI-based backends.
 
-## Features
 
-- **Case Classification**: Automatically classify legal cases into appropriate categories
-- **Outcome Prediction**: Predict potential case outcomes based on historical data
-- **Document Analysis**: Process and analyze legal documents
-- **User-Friendly Interface**: Modern web interface for easy interaction
-- **Secure Authentication**: User registration and login system
+🛠️ Prerequisites
 
-## Project Structure
+Install the following dependencies **before setup**:
 
-```
-verdictiq/              # Frontend React application
-myModel-classification/ # Classification model backend
-myModel-Prediction/    # Prediction model backend
-```
+- [Node.js (v14+)](https://nodejs.org/)
+- [Python (v3.8+)](https://www.python.org/)
+- [pip](https://pip.pypa.io/)
+- [Git](https://git-scm.com/)
+- Recommended: 4GB+ RAM, available ports: `3000`, `8001`, `8002`
 
-## Prerequisites
+---
 
-- Node.js (v14 or higher)
-- Python (v3.8 or higher)
-- npm or yarn
-- Git
+🔧 Step-by-Step Setup Guide
 
-## Quick Start
+1. Clone the Repository
 
-1. **Clone the repository**
-   ```bash
-   git clone [repository-url]
-   cd [repository-name]
-   ```
+```bash
+git clone <repository-url>
+cd <repository-folder>
 
-2. **Install Frontend Dependencies**
-   ```bash
-   cd verdictiq
-   npm install
-   ```
+2. Setup Frontend 
 
-3. **Install Backend Dependencies**
-   ```bash
-   cd ../myModel-classification
-   pip install -r requirements.txt
-   
-   cd ../myModel-Prediction
-   pip install -r requirements.txt
-   ```
+cd verdictiq
+npm install
 
-4. **Start the Application**
-   - Start the frontend:
-     ```bash
-     cd verdictiq
-     npm start
-     ```
-   - Start the classification backend:
-     ```bash
-     cd myModel-classification
-     python app.py
-     ```
-   - Start the prediction backend:
-     ```bash
-     cd myModel-Prediction
-     python app.py
-     ```
+3. Setup Backend ML Services
 
-5. **Access the Application**
-   - Frontend: http://localhost:3000
-   - Classification API: http://localhost:8000
-   - Prediction API: http://localhost:8001
+⚠️ Repeat these steps for both myModel-classification and myModel-Prediction
 
-## API Endpoints
+for classification model -- 
+cd ../myModel-classification
+python -m venv venv
+# Activate the environment
+source venv/bin/activate     # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
 
-### Classification Service
-- `POST /classify`: Classify legal cases
-  - Input: Case details in JSON format
-  - Output: Classification results
 
-### Prediction Service
-- `POST /predict`: Predict case outcomes
-  - Input: Case details in JSON format
-  - Output: Prediction results
+for prediction model -- 
+cd ../myModel-Prediction
+python -m venv venv
+# Activate the environment
+source venv/bin/activate     # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
 
-## Documentation
 
-For detailed documentation, please refer to:
-- `2-description.txt`: Comprehensive project documentation
-- `.gitignore`: List of files to be ignored by version control
+▶️ Running the Project (Development Mode)
+1. Start Backend ML Services
+🔹 Classification Model API (Port 8002)
+bash
+Copy
+Edit
+cd myModel-classification
+source venv/bin/activate     # On Windows: venv\Scripts\activate
+python app.py
+🔹 Outcome Prediction API (Port 8001)
+bash
+Copy
+Edit
+cd ../myModel-Prediction
+source venv/bin/activate     # On Windows: venv\Scripts\activate
+python app.py
+🔄 Confirm both FastAPI servers are running on:
 
-## Contributing
+http://localhost:8001 (Prediction)
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+http://localhost:8002 (Classification)
 
-## License
+2. Start the Frontend (React) (Port 3000)
+bash
+Copy
+Edit
+cd ../verdictiq
+npm start
+💻 Visit your app: http://localhost:3000
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+📚 Dependencies Overview
+Python (Backend)
+Installed via pip install -r requirements.txt:
 
-## Contact
 
-For any queries or support, please contact the project maintainers. 
+🚀 Build for Production
+1. Build Frontend
+bash
+Copy
+Edit
+cd verdictiq
+npm run build
+2. Deploy ML Services (Recommended for Production)
+Use WSGI servers like Gunicorn
+
+Configure Nginx or Apache as a reverse proxy
+
+Add SSL certificates (Let's Encrypt or custom)
+
+Define .env variables and secure keys
+
+🛡️ Troubleshooting
+Issue	Solution
+Port already in use	Kill process or use alternate port
+Model not loading	Ensure model.pkl and vectorizer.pkl exist
+API not connecting	Check if backend servers are running
+Frontend not displaying data	Check console logs and API endpoints
+
+
+

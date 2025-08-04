@@ -1,93 +1,84 @@
-📘 VerdictIQ - Legal Case Analysis System
+LegalTech AI Platform – Data-Driven Legal Analytics & Consulting for India
 
-VerdictIQ is a legal tech platform that utilizes machine learning to classify cases and predict outcomes through an interactive frontend and FastAPI-based backends.
+A comprehensive AI-powered legal platform designed to make legal analysis faster, fairer, and more accessible, especially for the Indian justice system. The platform integrates advanced machine learning and NLP models to classify court cases (civil, criminal, family, corporate, etc.), predict case outcomes, provide legal advice, and extract insights from legal documents. Users can upload case descriptions or legal PDFs (in various Indian languages) and receive case classifications, summary extraction, precedent recommendations, probability/confidence charts for case outcomes, and AI-driven legal strategy suggestions. Features include historical precedent search, document comparison, and fairness monitoring. Designed for law students, lawyers, judges, and the general public to support legal research, study, and informed decision making—all through an intuitive, visually rich web interface. Future plans include subscription tiers for legal professionals and expanded data coverage.
 
+Key Features:
 
-🛠️ Prerequisites
+-ML-based case classification (civil/criminal/family/etc.)
 
-Install the following dependencies **before setup**:
+-Outcome prediction using city, court, year, and case data (with visual probability and confidence scores)
 
-- [Node.js (v14+)](https://nodejs.org/)
-- [Python (v3.8+)](https://www.python.org/)
-- [pip](https://pip.pypa.io/)
-- [Git](https://git-scm.com/)
-- Recommended: 4GB+ RAM, available ports: `3000`, `8001`, `8002`
+-Legal advice and strategy recommendations based on case description and past precedent analysis
 
----
+-Automated legal PDF/text extraction and summarization using HuggingFace API and NLP models
+
+-Robust search and filtering of precedent cases, multilingual document support
+
+-Fairness monitoring to ensure unbiased AI predictions
+
+-For students, lawyers, judges, and the public—reducing time, cost, and complexity of legal research in India
+
+-Built with Python, Scikit-Learn, Hugging Face, React, MongoDB, SHAP/LIME, and major Indian legal datasets (Kaggle, Indian Kanoon, Supreme/High Court sources).
+
+-(Full-stack project; currently not hosted. Planned enhancements: public deployment, richer data, and paid features for professionals and organizations.)
+
+-Recommended: 4GB+ RAM, available ports: 3000, 8001, 8002
 
 🔧 Step-by-Step Setup Guide
-
 1. Clone the Repository
-
-```bash
+bash
 git clone <repository-url>
 cd <repository-folder>
-
-2. Setup Frontend 
-
+2. Setup Frontend
+bash
 cd verdictiq
 npm install
-
 3. Setup Backend ML Services
-
-⚠️ Repeat these steps for both myModel-classification and myModel-Prediction
-
-for classification model -- 
+For Classification Model:
+bash
 cd ../myModel-classification
 python -m venv venv
 # Activate the environment
 source venv/bin/activate     # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
-
-
-for prediction model -- 
+For Prediction Model:
+bash
 cd ../myModel-Prediction
 python -m venv venv
 # Activate the environment
 source venv/bin/activate     # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
-
-
 ▶️ Running the Project (Development Mode)
 1. Start Backend ML Services
-🔹 Classification Model API (Port 8002)
+Classification Model API (Port 8002)
 bash
-Copy
-Edit
 cd myModel-classification
 source venv/bin/activate     # On Windows: venv\Scripts\activate
 python app.py
-🔹 Outcome Prediction API (Port 8001)
+Outcome Prediction API (Port 8001)
 bash
-Copy
-Edit
 cd ../myModel-Prediction
 source venv/bin/activate     # On Windows: venv\Scripts\activate
 python app.py
-🔄 Confirm both FastAPI servers are running on:
+Check both FastAPI servers are running at:
 
 http://localhost:8001 (Prediction)
 
 http://localhost:8002 (Classification)
 
-2. Start the Frontend (React) (Port 3000)
+2. Start the Frontend (React, Port 3000)
 bash
-Copy
-Edit
 cd ../verdictiq
 npm start
-💻 Visit your app: http://localhost:3000
+Visit your app: http://localhost:3000
 
 📚 Dependencies Overview
 Python (Backend)
-Installed via pip install -r requirements.txt:
-
+Required libraries are specified in each requirements.txt file.
 
 🚀 Build for Production
 1. Build Frontend
 bash
-Copy
-Edit
 cd verdictiq
 npm run build
 2. Deploy ML Services (Recommended for Production)
@@ -104,7 +95,5 @@ Issue	Solution
 Port already in use	Kill process or use alternate port
 Model not loading	Ensure model.pkl and vectorizer.pkl exist
 API not connecting	Check if backend servers are running
-Frontend not displaying data	Check console logs and API endpoints
-
-
-
+Frontend not displaying	Check console logs and API endpoints
+For questions or contributions, please open an issue or submit a pull request!

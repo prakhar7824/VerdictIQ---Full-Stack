@@ -1,99 +1,186 @@
-LegalTech AI Platform – Data-Driven Legal Analytics & Consulting for India
+📘 VerdictIQ – Legal Case Analysis System
+VerdictIQ is a full-stack legal tech platform designed to make legal analysis faster, fairer, and more accessible, particularly for the Indian justice system. It leverages machine learning, NLP, and XAI techniques (like SHAP/LIME) to classify legal cases, predict case outcomes, summarize legal documents, and suggest legal strategies via an interactive web interface.
 
-A comprehensive AI-powered legal platform designed to make legal analysis faster, fairer, and more accessible, especially for the Indian justice system. The platform integrates advanced machine learning and NLP models to classify court cases (civil, criminal, family, corporate, etc.), predict case outcomes, provide legal advice, and extract insights from legal documents. Users can upload case descriptions or legal PDFs (in various Indian languages) and receive case classifications, summary extraction, precedent recommendations, probability/confidence charts for case outcomes, and AI-driven legal strategy suggestions. Features include historical precedent search, document comparison, and fairness monitoring. Designed for law students, lawyers, judges, and the general public to support legal research, study, and informed decision making—all through an intuitive, visually rich web interface. Future plans include subscription tiers for legal professionals and expanded data coverage.
+🚀 Key Features
+⚖️ ML-based Legal Case Classification (e.g., civil, criminal, family, corporate)
 
-Key Features:
+📊 Outcome Prediction using court, city, year, and case description with visual probabilities
 
--ML-based case classification (civil/criminal/family/etc.)
+📚 Legal Strategy Advisor based on past precedent analysis
 
--Outcome prediction using city, court, year, and case data (with visual probability and confidence scores)
+📄 Legal Document Summarization & Extraction via Hugging Face NLP models
 
--Legal advice and strategy recommendations based on case description and past precedent analysis
+🔍 Precedent Search & Comparison with filters for Indian jurisdictions
 
--Automated legal PDF/text extraction and summarization using HuggingFace API and NLP models
+🌐 Multilingual Document Support for regional legal texts
 
--Robust search and filtering of precedent cases, multilingual document support
+🛡️ Fairness Monitoring (bias detection & explainability with SHAP/LIME)
 
--Fairness monitoring to ensure unbiased AI predictions
+🎯 For Students, Lawyers, Judges, and Citizens to democratize legal access
 
--For students, lawyers, judges, and the public—reducing time, cost, and complexity of legal research in India
+🛠️ Prerequisites
+Ensure the following are installed:
 
--Built with Python, Scikit-Learn, Hugging Face, React, MongoDB, SHAP/LIME, and major Indian legal datasets (Kaggle, Indian Kanoon, Supreme/High Court sources).
+Node.js (v14+)
 
--(Full-stack project; currently not hosted. Planned enhancements: public deployment, richer data, and paid features for professionals and organizations.)
+Python (v3.8+)
 
--Recommended: 4GB+ RAM, available ports: 3000, 8001, 8002
+pip
+
+Git
+
+Recommended Specs:
+Minimum 4GB RAM, and open ports: 3000, 8001, 8002.
 
 🔧 Step-by-Step Setup Guide
 1. Clone the Repository
 bash
+Copy
+Edit
 git clone <repository-url>
 cd <repository-folder>
-2. Setup Frontend
+2. Setup Frontend (React)
 bash
+Copy
+Edit
 cd verdictiq
 npm install
 3. Setup Backend ML Services
-For Classification Model:
+⚠️ Repeat the below steps separately for both myModel-classification and myModel-Prediction
+
+A. For Classification Model (Port 8002)
 bash
+Copy
+Edit
 cd ../myModel-classification
 python -m venv venv
-# Activate the environment
-source venv/bin/activate     # On Windows: venv\Scripts\activate
+source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
-For Prediction Model:
+B. For Outcome Prediction Model (Port 8001)
 bash
+Copy
+Edit
 cd ../myModel-Prediction
 python -m venv venv
-# Activate the environment
-source venv/bin/activate     # On Windows: venv\Scripts\activate
+source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ▶️ Running the Project (Development Mode)
-1. Start Backend ML Services
-Classification Model API (Port 8002)
+1. Start Backend Services
+Classification API (Port 8002)
 bash
+Copy
+Edit
 cd myModel-classification
-source venv/bin/activate     # On Windows: venv\Scripts\activate
+source venv/bin/activate
 python app.py
-Outcome Prediction API (Port 8001)
+Prediction API (Port 8001)
 bash
+Copy
+Edit
 cd ../myModel-Prediction
-source venv/bin/activate     # On Windows: venv\Scripts\activate
+source venv/bin/activate
 python app.py
-Check both FastAPI servers are running at:
+Verify Servers:
 
-http://localhost:8001 (Prediction)
+http://localhost:8001 → Outcome Prediction
 
-http://localhost:8002 (Classification)
+http://localhost:8002 → Case Classification
 
-2. Start the Frontend (React, Port 3000)
+2. Start Frontend (Port 3000)
 bash
+Copy
+Edit
 cd ../verdictiq
 npm start
-Visit your app: http://localhost:3000
+Visit the app: http://localhost:3000
 
-📚 Dependencies Overview
-Python (Backend)
-Required libraries are specified in each requirements.txt file.
+📚 Backend Dependencies
+Installed via pip install -r requirements.txt:
+
+fastapi
+
+uvicorn
+
+scikit-learn
+
+pandas
+
+numpy
+
+joblib
+
+transformers (for NLP)
+
+shap, lime (for explainability)
+
+others as needed
 
 🚀 Build for Production
 1. Build Frontend
 bash
+Copy
+Edit
 cd verdictiq
 npm run build
-2. Deploy ML Services (Recommended for Production)
-Use WSGI servers like Gunicorn
+2. Deploy Backend ML Services
+Recommended:
 
-Configure Nginx or Apache as a reverse proxy
+Use Gunicorn or Uvicorn with ASGI
 
-Add SSL certificates (Let's Encrypt or custom)
+Set up Nginx or Apache as reverse proxy
 
-Define .env variables and secure keys
+Add SSL Certificates (Let's Encrypt)
+
+Define secure .env variables for configs
+
+Use PM2 or Docker for process management
 
 🛡️ Troubleshooting
 Issue	Solution
-Port already in use	Kill process or use alternate port
+Port already in use	Kill the process or change the port
 Model not loading	Ensure model.pkl and vectorizer.pkl exist
-API not connecting	Check if backend servers are running
-Frontend not displaying	Check console logs and API endpoints
-For questions or contributions, please open an issue or submit a pull request!
+API not connecting	Ensure the backend servers are running
+Frontend not displaying	Check browser console and verify backend connectivity
+
+👥 Target Audience
+🧑‍⚖️ Law Students & Researchers
+
+🧑‍💼 Lawyers & Legal Analysts
+
+🏛️ Judges & Court Assistants
+
+🧑‍🤝‍🧑 Citizens seeking fair legal insights
+
+🧪 Technologies Used
+Frontend: React.js, Tailwind CSS, Vite
+
+Backend: Python, FastAPI, scikit-learn, Hugging Face Transformers
+
+ML/NLP: BERT, SHAP, LIME, TF-IDF, Logistic Regression
+
+Infra: MongoDB, GitHub, REST APIs
+
+📦 Planned Enhancements
+🚀 Public Deployment (Vercel, Render, or Railway)
+
+🧾 Expanded Indian legal datasets (Indian Kanoon, Supreme Court)
+
+💼 Paid tier for legal professionals
+
+🧠 In-app Legal Chatbot (RAG + PDF memory)
+
+🔎 Better Precedent Filtering and PDF Export Tools
+
+🤝 Contributing
+Contributions are welcome! Please open an issue or submit a pull request for:
+
+⚒️ Bug fixes
+
+📈 Feature requests
+
+🧪 Model improvements
+
+🌐 Language support additions
+
+📄 License
+This project is open-source under the MIT License.
